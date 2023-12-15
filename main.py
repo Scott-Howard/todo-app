@@ -1,3 +1,2 @@
 if __name__ == "__main__":
-    print("Enter a todo:")
-    
+    print("Enter a todo:") #test
