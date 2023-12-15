@@ -1,2 +1,9 @@
 if __name__ == "__main__":
-    print("Enter a todo:") #test
+    #vars
+    user_prompt ="Enter a todo:"
+    #code block
+    print(user_prompt) 
+    user_text = input()
+    print(user_text)
+
+
