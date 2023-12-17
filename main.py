@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    user_prompt ="Enter a todo:
+    user_prompt ="Enter a todo:"
     #userinput
     todo1 = input(user_prompt)
     todo2 = input(user_prompt)
