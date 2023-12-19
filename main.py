@@ -1,9 +1,13 @@
 if __name__ == "__main__":
-    user_prompt ="Enter a todo:"
+    user_prompt ="type add or show: "
 
     todos = [] # initialise an emppty list
     while True :
-        todo = input(user_prompt)
-        print(todo.capitalize())
-        todos.append(todo)
-        print(todos)
+        user_action = input(user_prompt)
+
+        match user_action:
+            case 'add':
+                todo = input("Enter a todo: ")
+                todos.append(todo)
+            case 'show':
+                print(todos)       
