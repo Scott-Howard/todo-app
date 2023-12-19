@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    user_prompt ="type add or show: "
+    user_prompt ="type add or show or exit: "
 
     todos = [] # initialise an emppty list
     while True :
@@ -10,4 +10,7 @@ if __name__ == "__main__":
                 todo = input("Enter a todo: ")
                 todos.append(todo)
             case 'show':
-                print(todos)       
+                print(todos)   
+            case 'exit':
+                break    
+print('Bye!')
