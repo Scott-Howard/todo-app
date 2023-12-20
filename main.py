@@ -9,9 +9,10 @@ if __name__ == "__main__":
             case 'add':
                 todo = input("Enter a todo: ")
                 todos.append(todo)
-            case 'show'  | 'display': #evaluates for show or display bit wise operator either evaluates as true
+            case 'show' : 
                 #print(todos)
                 for item in todos: #nicely prints out the contents of todo
+                    item = item.title()
                     print(item)   
             case 'exit':
                 break
