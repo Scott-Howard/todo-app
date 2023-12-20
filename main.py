@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    user_prompt ="type add or show or exit: "
+    user_prompt ="type add or show, edit or exit: "
 
     todos = [] # initialise an emppty list
     while True :
@@ -16,4 +16,12 @@ if __name__ == "__main__":
                     print(item)   
             case 'exit':
                 break
+            case 'edit':
+                for item in todos: #nicely prints out the contents of todo
+                    item = item.title()
+                    print(item)  
+                number = int(input("Number of the todo to edit: "))-1
+                existing_todo = todos[number] 
+                new_todo = input("Enter a new todo: ")
+                todos[number] = new_todo
 print('Bye!')
