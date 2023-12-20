@@ -14,5 +14,7 @@ if __name__ == "__main__":
                 for item in todos: #nicely prints out the contents of todo
                     print(item)   
             case 'exit':
-                break    
+                break
+            case _: #underscore _ is a convention for this part of code for the uninitialse variable
+                print("Enter a known command")    
 print('Bye!')
