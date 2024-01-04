@@ -11,15 +11,15 @@ if __name__ == "__main__":
                 todos.append(todo)
             case 'show' : 
                 #print(todos)
-                for item in todos: #nicely prints out the contents of todo
+                for index,item in enumerate(todos): #nicely prints out the contents of todo
                     item = item.title()
-                    print(item)   
+                    print(index+1,". ", item)   
             case 'exit':
                 break
             case 'edit':
-                for item in todos: #nicely prints out the contents of todo
+                for index,item in enumerate(todos): #nicely prints out the contents of todo
                     item = item.title()
-                    print(item)  
+                    print(index+1,". ", item)   
                 number = int(input("Number of the todo to edit: "))-1
                 existing_todo = todos[number] 
                 new_todo = input("Enter a new todo: ")
