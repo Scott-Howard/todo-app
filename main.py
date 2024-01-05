@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    user_prompt ="type add or show, edit or exit: "
+    user_prompt ="type add or show, edit, complete or exit: "
 
     todos = [] # initialise an emppty list
     while True :
@@ -13,13 +13,17 @@ if __name__ == "__main__":
                 #print(todos)
                 for index,item in enumerate(todos): #nicely prints out the contents of todo
                     item = item.title()
-                    print(index+1,". ", item)   
+                    row = f"{index + 1}. {item}"
+                    print(row) 
             case 'exit':
                 break
+            case 'complete':
+                number = int(input("Number of the todo to complete: "))-1
+                todos.pop(number)
             case 'edit':
                 for index,item in enumerate(todos): #nicely prints out the contents of todo
-                    item = item.title()
-                    print(index+1,". ", item)   
+                    row = f"{index}. {item}"
+                    print(row)  
                 number = int(input("Number of the todo to edit: "))-1
                 existing_todo = todos[number] 
                 new_todo = input("Enter a new todo: ")
