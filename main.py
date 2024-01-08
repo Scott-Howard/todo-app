@@ -17,7 +17,10 @@ if __name__ == "__main__":
                 file.writelines(todos)
                 file.close()
             case 'show' : 
-                #print(todos)
+                file = open('todos.txt','r')
+                todos  = file.readlines()
+                file.close()
+                
                 for index,item in enumerate(todos): #nicely prints out the contents of todo
                     item = item.title()
                     row = f"{index + 1}. {item}"
