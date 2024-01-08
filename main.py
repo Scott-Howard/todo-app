@@ -1,14 +1,21 @@
 if __name__ == "__main__":
     user_prompt ="type add or show, edit, complete or exit: "
 
-    todos = [] # initialise an emppty list
     while True :
         user_action = input(user_prompt)
         user_action = user_action.strip() #removes whitespace
         match user_action:
             case 'add':
-                todo = input("Enter a todo: ")
+                todo = input("Enter a todo: ") + "\n"
+
+                file = open('todos.txt','r')
+                todos = file.readlines()
+                file.close()
+
                 todos.append(todo)
+                file = open('todos.txt', 'w')
+                file.writelines(todos)
+                file.close()
             case 'show' : 
                 #print(todos)
                 for index,item in enumerate(todos): #nicely prints out the contents of todo
