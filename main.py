@@ -21,10 +21,12 @@ if __name__ == "__main__":
                 todos  = file.readlines()
                 file.close()
 
-                new_todos = [] 
-                for item in todos:
-                    new_item = item.strip('\n')
-                    new_todos.append(new_item)
+                # new_todos = [] 
+                # for item in todos:
+                #     new_item = item.strip('\n')
+                #     new_todos.append(new_item)
+
+                new_todos = [item.strip('\n') for item in todos] #list compehension
                 
                 for index,item in enumerate(new_todos): #nicely prints out the contents of todo
                     item = item.title()
