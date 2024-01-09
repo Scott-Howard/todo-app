@@ -3,7 +3,7 @@ if __name__ == "__main__":
 
     while True :
         user_action = input(user_prompt)
-        user_action = user_action.strip() #removes whitespace
+        user_action = user_action.strip() # removes whitespace
         match user_action:
             case 'add':
                 todo = input("Enter a todo: ") + "\n"
@@ -21,9 +21,9 @@ if __name__ == "__main__":
                 todos  = file.readlines()
                 file.close()
 
-                new_todos = [item.strip('\n') for item in todos] #list compehension
+                new_todos = [item.strip('\n') for item in todos] # list compehension
                 
-                for index,item in enumerate(new_todos): #nicely prints out the contents of todo
+                for index,item in enumerate(new_todos): 
                     item = item.title()
                     row = f"{index + 1}. {item}"
                     print(row) 
@@ -33,7 +33,7 @@ if __name__ == "__main__":
                 number = int(input("Number of the todo to complete: "))-1
                 todos.pop(number)
             case 'edit':
-                for index,item in enumerate(todos): #nicely prints out the contents of todo
+                for index,item in enumerate(todos): 
                     row = f"{index}. {item}"
                     print(row)  
                 number = int(input("Number of the todo to edit: "))-1
