@@ -29,6 +29,7 @@ if __name__ == "__main__":
                 new_todos = [item.strip('\n') for item in todos] #list compehension
                 
                 for index,item in enumerate(new_todos): #nicely prints out the contents of todo
+                    #item = item.strip() #simpler than list comprehension maybe
                     item = item.title()
                     row = f"{index + 1}. {item}"
                     print(row) 
