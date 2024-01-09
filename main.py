@@ -20,8 +20,13 @@ if __name__ == "__main__":
                 file = open('todos.txt','r')
                 todos  = file.readlines()
                 file.close()
+
+                new_todos = [] 
+                for item in todos:
+                    new_item = item.strip('\n')
+                    new_todos.append(new_item)
                 
-                for index,item in enumerate(todos): #nicely prints out the contents of todo
+                for index,item in enumerate(new_todos): #nicely prints out the contents of todo
                     item = item.title()
                     row = f"{index + 1}. {item}"
                     print(row) 
