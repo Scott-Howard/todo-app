@@ -13,8 +13,8 @@ if __name__ == "__main__":
 
                 todos.append(todo)
 
-                with open('todos.txt', w) as file:
-                    file.writelines('todos.txt')
+                with open('todos.txt', 'w') as file:
+                    file.writelines(todos)
                             
             case 'show' : 
                 with open('todos.txt','r') as file:
@@ -29,14 +29,32 @@ if __name__ == "__main__":
             case 'exit':
                 break
             case 'complete':
-                number = int(input("Number of the todo to complete: "))-1
-                todos.pop(number)
+                with open('todos.txt','r') as file:
+                    todos = file.readlines()
+
+                number = int(input("Number of the todo to complete: "))
+                index = number - 1
+                todo_to_remove = todos[index].strip('\n')
+                todos.pop(index)
+
+                with open('todos.txt', 'w') as file:
+                    file.writelines(todos)
+                
+                message = f"Todo {todo_to_remove} was removed"
+                print(message)
+                    
             case 'edit':
-                for index,item in enumerate(todos): 
-                    row = f"{index}. {item}"
-                    print(row)  
+                with open('todos.txt', 'r') as file:
+                    todos = file.readlines()
+
                 number = int(input("Number of the todo to edit: "))-1
+
                 existing_todo = todos[number] 
                 new_todo = input("Enter a new todo: ")
-                todos[number] = new_todo
+                todos[number] = new_todo +'\n'
+
+                with open('todos.txt', 'w') as file:
+                    file.writelines(todos)
+
+
 print('Bye!')
