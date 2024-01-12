@@ -6,7 +6,7 @@ if __name__ == "__main__":
         user_action = user_action.strip() # removes whitespace
 
 
-        if 'add' in user_action:
+        if 'add' in user_action or 'new' in user_action:
             todo = user_action[4:] #list slice from just after "add "
 
             with open('todos.txt','r') as file:
