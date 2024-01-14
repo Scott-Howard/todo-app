@@ -5,8 +5,7 @@ if __name__ == "__main__":
         user_action = input(user_prompt)
         user_action = user_action.strip() # removes whitespace
 
-
-        if 'add' in user_action or 'new' in user_action:
+        if user_action.startswith("add"):
             todo = user_action[4:] #list slice from just after "add "
 
             with open('todos.txt','r') as file:
@@ -17,7 +16,7 @@ if __name__ == "__main__":
             with open('todos.txt', 'w') as file:
                 file.writelines(todos)
                         
-        elif 'show' in user_action: 
+        elif user_action.startswith("show"): #startswith is a string function
             with open('todos.txt','r') as file:
                 todos = file.readlines()
 
@@ -27,7 +26,7 @@ if __name__ == "__main__":
                 item = item.title()
                 row = f"{index + 1}. {item}"
                 print(row) 
-        elif 'exit' in user_action:
+        elif user_action.startswith("exit"):
             break
         
         elif 'complete' in user_action:
@@ -45,7 +44,7 @@ if __name__ == "__main__":
             message = f"Todo {todo_to_remove} was removed"
             print(message)
                 
-        elif 'edit'in user_action:
+        elif user_action.startswith('edit'):
             with open('todos.txt', 'r') as file:
                 todos = file.readlines()
 
@@ -59,7 +58,4 @@ if __name__ == "__main__":
                 file.writelines(todos)
         else:
             print("Command is not valid")
-
-
-
 print('Bye!')
