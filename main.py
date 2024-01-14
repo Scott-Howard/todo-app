@@ -14,48 +14,57 @@ if __name__ == "__main__":
             todos.append(todo + '\n')
 
             with open('todos.txt', 'w') as file:
-                file.writelines(todos)
-                        
+                file.writelines(todos)     
+
         elif user_action.startswith("show"): #startswith is a string function
             with open('todos.txt','r') as file:
                 todos = file.readlines()
-
-            new_todos = [item.strip('\n') for item in todos] # list compehension
-            
+                new_todos = [item.strip('\n') for item in todos] # list compehension
             for index,item in enumerate(new_todos): 
                 item = item.title()
                 row = f"{index + 1}. {item}"
                 print(row) 
+
         elif user_action.startswith("exit"):
-            break
-        
-        elif 'complete' in user_action:
-            with open('todos.txt','r') as file:
-                todos = file.readlines()
+            break     
 
-            number = int(user_action[9:])
-            index = number - 1
-            todo_to_remove = todos[index].strip('\n')
-            todos.pop(index)
+        elif user_action.startswith('complete'):
+            try:
+                with open('todos.txt','r') as file:
+                    todos = file.readlines()
 
-            with open('todos.txt', 'w') as file:
-                file.writelines(todos)
-            
-            message = f"Todo {todo_to_remove} was removed"
-            print(message)
+                number = int(user_action[9:])
+                index = number - 1
+                todo_to_remove = todos[index].strip('\n')
+                todos.pop(index)
+
+                with open('todos.txt', 'w') as file:
+                    file.writelines(todos)
                 
+                message = f"Todo {todo_to_remove} was removed"
+                print(message)
+            except IndexError:
+                print('There is no item with that index')
+                continue
+
         elif user_action.startswith('edit'):
-            with open('todos.txt', 'r') as file:
-                todos = file.readlines()
+            try:
+                with open('todos.txt', 'r') as file:
+                    todos = file.readlines()
 
-            number = int(user_action[5:]) -1
+                number = int(user_action[5:]) -1
 
-            existing_todo = todos[number] 
-            new_todo = input("Enter a new todo: ")
-            todos[number] = new_todo +'\n'
+                existing_todo = todos[number] 
+                new_todo = input("Enter a new todo: ")
+                todos[number] = new_todo +'\n'
 
-            with open('todos.txt', 'w') as file:
-                file.writelines(todos)
+                with open('todos.txt', 'w') as file:
+                    file.writelines(todos)
+            except ValueError:
+                print('Command is not valid')
+                continue #forces the code into a new run of the while loop
+
         else:
             print("Command is not valid")
+
 print('Bye!')
