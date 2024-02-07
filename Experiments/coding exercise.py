@@ -33,13 +33,20 @@
 # [a,b] = get_max()
 # print(f"Max:{a}, Min:{b}")
 
-def get_maximum():
-    celsius = [14, 15.1, 12.3]
-    maximum = max(celsius)
-    print(maximum)
-    return maximum
+# def get_maximum():
+#     celsius = [14, 15.1, 12.3]
+#     maximum = max(celsius)
+#     print(maximum)
+#     return maximum
     
-celsius = get_maximum()
-fahrenheit = celsius * 1.8 + 32
+# celsius = get_maximum()
+# fahrenheit = celsius * 1.8 + 32
  
-print(fahrenheit)
+# print(fahrenheit)
+
+def avg_list(bag):
+    den = len(bag)
+    num = 0
+    for thing in bag:
+        num = int(num) + int(thing)
+    return(num/den)
