@@ -1,10 +1,13 @@
-if __name__ == "__main__":
+if __name__=="__main__":
 
-    
-    def get_todos():
-        with open('todos.txt','r') as file:
-            todos = file.readlines()
-        return todos     
+    def get_todos(filepath='todos.txt'):
+        with open(filepath,'r') as file_local:
+            todos_local = file_local.readlines()
+        return todos_local  
+
+    def write_todos(input, filepath='todos.txt'):
+        with open(filepath,'w') as file_local:
+            file_local.writelines(input)        
 
     user_prompt ="type add or show, edit, complete or exit: "
     while True:
@@ -16,9 +19,8 @@ if __name__ == "__main__":
 
             todos =get_todos()
             todos.append(todo + '\n')
-
-            with open('todos.txt', 'w') as file:
-                file.writelines(todos)     
+        
+            write_todos(todos)
 
         elif user_action.startswith("show"): #startswith is a string function
             todos = get_todos()
@@ -40,8 +42,7 @@ if __name__ == "__main__":
                 todo_to_remove = todos[index].strip('\n')
                 todos.pop(index)
 
-                with open('todos.txt', 'w') as file:
-                    file.writelines(todos)
+                write_todos(todos)
                 
                 message = f"Todo {todo_to_remove} was removed"
                 print(message)
@@ -58,8 +59,8 @@ if __name__ == "__main__":
                 new_todo = input("Enter a new todo: ")
                 todos[number] = new_todo +'\n'
 
-                with open('todos.txt', 'w') as file:
-                    file.writelines(todos)
+                write_todos(todos)
+                
             except ValueError:
                 print('Command is not valid')
                 continue #forces the code into a new run of the while loop
