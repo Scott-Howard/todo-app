@@ -1,7 +1,10 @@
 if __name__=="__main__":
 
-    from modules import functions      
+    from modules import functions
+    import time
 
+    now = time.strftime("%b %d, %Y %H:%M:%S")
+    
     user_prompt ="type add or show, edit, complete or exit: "
     while True:
         user_action = input(user_prompt)
@@ -10,7 +13,7 @@ if __name__=="__main__":
         if user_action.startswith("add"):
             todo = user_action[4:] #list slice from just after "add "
 
-            todos =functions.get_todos()
+            todos = functions.get_todos()
             todos.append(todo + '\n')
         
             functions.write_todos(todos)
