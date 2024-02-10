@@ -4,6 +4,7 @@ if __name__=="__main__":
     import time
 
     now = time.strftime("%b %d, %Y %H:%M:%S")
+    print(f"It is {now}")
     
     user_prompt ="type add or show, edit, complete or exit: "
     while True:
