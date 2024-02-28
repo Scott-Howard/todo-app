@@ -33,15 +33,15 @@ while True:
     match event:
         case "Add":
             todos = fn.get_todos()
-            new_todo = values['todo'] #+ "\n"
-            todos.append(new_todo)
+            new_todo = values['todo'] 
+            todos.append(new_todo + "\n") 
             fn.write_todos(todos)
             window['todos'].update(values = todos)
             window['todo'].update(value='')
         case "Edit":
             try:
                 todo_to_edit = values['todos'][0]
-                new_todo = values['todo'] + "\n" #bug copuing m,ultiple times as a todo too many /n
+                new_todo = values['todo'] 
 
                 todos = fn.get_todos()
                 index =todos.index(todo_to_edit)
@@ -50,6 +50,8 @@ while True:
                 window['todos'].update(values = todos)
             except IndexError:
                 sg.popup("Select a todo to edit", font = ("Helvetica",20))
+            except ValueError:
+                sg.popup('value error')
         case "Complete":
             try:
                 todo_to_complete = values['todos'][0]
