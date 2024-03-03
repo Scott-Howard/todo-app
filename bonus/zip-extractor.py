@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+from zip_extractor import extract_archive
 
 sg.theme("SandyBeach")
 
@@ -18,5 +19,12 @@ window = sg.Window("File Extractor",
                                                 [label2,input2,choose_button2],
                                                 [extract_button,output_label]])
 
-window.read()
+while True:
+    event,values = window.read()
+    print(event,values)
+    archive_path = values["archive"]
+    dest_directory = values["folder"]
+    extract_archive(archive_path,dest_directory)
+    window["output"].update(value="Extraction Completed")
+
 window.close()
